@@ -1,13 +1,38 @@
+# from os import read
+
+
+from typing import Text
+
+
 STOP_WORDS = [
     'a', 'an', 'and', 'are', 'as', 'at', 'be', 'by', 'for', 'from', 'has', 'he',
     'i', 'in', 'is', 'it', 'its', 'of', 'on', 'that', 'the', 'to', 'were',
     'will', 'with'
 ]
 
+# start by opening the file, read the file
 
 def print_word_freq(file):
     """Read in `file` and print out the frequency of words in that file."""
-    pass
+    with open(file) as one_today:
+        text = one_today.read()
+        print(repr(text[0:-1]))
+    d = dict()
+    for line in text:
+        line = line.strip()
+        line = line.lower()
+        words = line.split(" ")
+        for word in words:
+            if word in d:
+                d[word] = d[word] + 1
+            else:
+                d[word] = 1
+    for word in list(d.keys()):
+        print(word, ":", d[word])
+        print(line)
+    
+# ignore stop words
+# count frequency of each word
 
 
 if __name__ == "__main__":
@@ -25,3 +50,4 @@ if __name__ == "__main__":
     else:
         print(f"{file} does not exist!")
         exit(1)
+
