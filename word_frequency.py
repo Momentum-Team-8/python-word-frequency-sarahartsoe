@@ -25,10 +25,12 @@ def print_word_freq(file):
         for word in words:
             if word in d:
                 d[word] = d[word] + 1
+            elif word in STOP_WORDS:
+                pass
             else:
                 d[word] = 1
     for word in list(d.keys()):
-        print(word, ":", d[word])
+        print(word, "|", d[word])
     
     
 # ignore stop words
