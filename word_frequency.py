@@ -29,7 +29,7 @@ def print_word_freq(file):
                 pass
             else:
                 d[word] = 1
-    for word in list(d.keys()):
+    for word in sorted(d, key=d.get, reverse=True):
         print(word, "|", d[word])
     
     
